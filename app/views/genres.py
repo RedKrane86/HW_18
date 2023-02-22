@@ -16,7 +16,7 @@ class GenresView(Resource):
 
 @genre_ns.route('/<int:gid>')
 class GenreView(Resource):
-    def get_one(self, gid):
+    def get(self, gid):
         genre = genre_services.get_one(gid)
         result = GenreSchema().dump(genre)
         return result, 200

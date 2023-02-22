@@ -15,7 +15,7 @@ class DirectorsView(Resource):
 
 @director_ns.route('/<int:did>')
 class DirectorView(Resource):
-    def get_one(self, did):
+    def get(self, did):
         director = director_services.get_one(did)
         result = DirectorSchema().dump(director)
         return result, 200

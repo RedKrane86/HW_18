@@ -22,7 +22,7 @@ class MoviesView(Resource):
 
 @movies_ns.route('/<int:mid>')
 class MovieView(Resource):
-    def get_one(self, mid):
+    def get(self, mid):
         movie = movies_services.get_one(mid)
         result = MovieSchema().dump(movie)
         if not movie:
